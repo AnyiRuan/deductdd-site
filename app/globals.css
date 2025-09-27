@@ -2,29 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+/* CSS 变量 */
 :root {
   --radius: 16px;
 }
 
+/* 基础样式 */
 html, body {
-  @apply h-full scroll-smooth;
+  height: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
   @apply bg-white text-neutral-800;
 }
 
+/* 容器 */
 .container-x {
   @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
 }
 
-/* Buttons */
+/* 按钮 */
 .btn {
   @apply inline-flex items-center justify-center rounded-xl px-5 py-3 font-medium transition shadow-soft;
 }
+
 .btn-primary {
   @apply bg-brand text-white hover:bg-brand-dark;
 }
+
 .btn-outline {
   @apply border border-neutral-300 hover:border-neutral-400;
 }
@@ -33,6 +39,7 @@ body {
 .bg-brand-gradient {
   background: linear-gradient(135deg, #0A4FA5 0%, #0E6FD6 60%, #47B5FF 100%);
 }
+
 .text-gradient {
   background: linear-gradient(135deg, #0A4FA5 0%, #0E6FD6 60%, #47B5FF 100%);
   -webkit-background-clip: text;
