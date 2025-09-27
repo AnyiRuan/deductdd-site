@@ -1,0 +1,14 @@
+{
+  "name": "DeductDD",
+  "short_name": "DeductDD",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#0E6FD6",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}
