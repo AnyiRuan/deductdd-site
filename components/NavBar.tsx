@@ -5,10 +5,10 @@ import Image from "next/image";
 import clsx from "clsx";
 
 const links = [
-  { href: "/", label: "首页" },
-  { href: "/features", label: "功能" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/blog", label: "博客" },
+  { href: "/" as const, label: "首页" },
+  { href: "/features" as const, label: "功能" },
+  { href: "/faq" as const, label: "FAQ" },
+  { href: "/blog" as const, label: "博客" },
 ];
 
 export default function NavBar() {
