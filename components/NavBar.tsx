@@ -5,11 +5,11 @@ import Image from "next/image";
 import clsx from "clsx";
 
 const links = [
-  { href: "/", label: "首页" },
-  { href: "/features", label: "功能" },
+  { href: "/", label: "Home" },
+  { href: "/features", label: "Features" },
   { href: "/faq", label: "FAQ" },
-  { href: "/blog", label: "博客" },
-];
+  { href: "/blog", label: "Blog" },
+] as const;
 
 export default function NavBar() {
   const pathname = usePathname();
@@ -29,7 +29,7 @@ export default function NavBar() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
-          <Link href="#download" className="btn btn-primary text-sm">立即下载</Link>
+          <Link href="#download" className="btn btn-primary text-sm">Download Now</Link>
         </div>
       </div>
     </header>

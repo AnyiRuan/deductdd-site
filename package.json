@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "tailwindcss -v > /dev/null 2>&1 || true"
+    "postinstall": "tailwindcss -v > nul 2>&1 || echo done"
   },
   "dependencies": {
     "next": "14.2.5",
