@@ -1,11 +1,15 @@
+"use client";
 import { Camera, FileSpreadsheet, FileArchive, History, ShieldCheck } from "lucide-react";
 import Section from "@/components/Section";
 import DownloadButtons from "@/components/DownloadButtons";
 import FeatureCard from "@/components/FeatureCard";
 import Image from "next/image";
 import Link from "next/link";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Page() {
+  const { t } = useLanguage();
+  
   return (
     <div>
       {/* Hero */}
@@ -13,17 +17,21 @@ export default function Page() {
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div>
             <h1 className="text-4xl sm:text-5xl font-bold leading-tight text-gradient">
-              一键拍收据，<br/>轻松报税无忧
+              {t('hero.title').split('\n').map((line, index) => (
+                <span key={index}>
+                  {line}
+                  {index === 0 && <br />}
+                </span>
+              ))}
             </h1>
             <p className="mt-4 text-lg text-neutral-700">
-              DeductDD — 专为 1099 自雇人士打造的智能收据与费用管理助手。
-              拍收据自动生成记录，年度流水号，支持 Excel / PDF / CSV 导出，收据还能打包 ZIP。
+              {t('hero.subtitle')}
             </p>
             <div className="mt-8">
               <DownloadButtons />
             </div>
             <div className="mt-3 text-sm text-neutral-500">
-              * 目前开放 iOS 申请，Android 版本准备中
+              {t('hero.note')}
             </div>
           </div>
           <div className="relative">
@@ -35,56 +43,56 @@ export default function Page() {
       </section>
 
       {/* Core features */}
-      <Section title="核心卖点" subtitle="以“拍收据 + 流水号 + 导出”为核心能力，覆盖报税全流程。">
+      <Section title={t('features.title')} subtitle={t('features.subtitle')}>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <FeatureCard icon={<Camera />} title="一键收据拍照"
-            desc="拍下收据即生成记录并绑定流水号；仅拍照也会自动创建占位记录。" />
-          <FeatureCard icon={<History />} title="年度统一流水号"
-            desc="YYYY-00001 规范编号，避免重复与遗漏，便于稽核对账。" />
-          <FeatureCard icon={<FileSpreadsheet />} title="Excel/PDF/CSV 导出"
-            desc="一键导出给会计师或 IRS 申报，记录清晰可追溯。" />
-          <FeatureCard icon={<FileArchive />} title="收据 ZIP 打包"
-            desc="自动收集所选年份的所有收据并打包为 ZIP，含 README 说明。" />
+          <FeatureCard icon={<Camera />} title={t('features.photo.title')}
+            desc={t('features.photo.desc')} />
+          <FeatureCard icon={<History />} title={t('features.serial.title')}
+            desc={t('features.serial.desc')} />
+          <FeatureCard icon={<FileSpreadsheet />} title={t('features.export.title')}
+            desc={t('features.export.desc')} />
+          <FeatureCard icon={<FileArchive />} title={t('features.zip.title')}
+            desc={t('features.zip.desc')} />
         </div>
       </Section>
 
       {/* Pain & solution */}
-      <Section title="常见痛点，我们来解决">
+      <Section title={t('pain.title')}>
         <div className="grid md:grid-cols-3 gap-6">
           <div className="rounded-2xl border p-6">
-            <h3 className="font-semibold">收据太乱？</h3>
-            <p className="mt-2 text-neutral-600">拍照即存自动归档，照片与记录双向关联。</p>
+            <h3 className="font-semibold">{t('pain.messy.title')}</h3>
+            <p className="mt-2 text-neutral-600">{t('pain.messy.desc')}</p>
           </div>
           <div className="rounded-2xl border p-6">
-            <h3 className="font-semibold">报税太难？</h3>
-            <p className="mt-2 text-neutral-600">统一流水号 + 多格式导出，结构化清晰。</p>
+            <h3 className="font-semibold">{t('pain.tax.title')}</h3>
+            <p className="mt-2 text-neutral-600">{t('pain.tax.desc')}</p>
           </div>
           <div className="rounded-2xl border p-6">
-            <h3 className="font-semibold">录入低效？</h3>
-            <p className="mt-2 text-neutral-600">历史建议智能排序，常用字段一键带入。</p>
+            <h3 className="font-semibold">{t('pain.entry.title')}</h3>
+            <p className="mt-2 text-neutral-600">{t('pain.entry.desc')}</p>
           </div>
         </div>
       </Section>
 
       {/* Trust */}
-      <Section title="安全与本地优先" subtitle="数据默认保存在本地，可按需导出至 iCloud/本地文件。">
+      <Section title={t('security.title')} subtitle={t('security.subtitle')}>
         <div className="rounded-2xl border p-6 flex items-center gap-4">
           <ShieldCheck className="text-brand" />
-          <p className="text-neutral-700">我们重视您的数据隐私与安全，仅在您主动导出时才会离开设备。</p>
+          <p className="text-neutral-700">{t('security.desc')}</p>
         </div>
       </Section>
 
       {/* CTA */}
-      <Section id="cta" title="立即下载 DeductDD">
+      <Section id="cta" title={t('cta.title')}>
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6 rounded-2xl border p-8">
           <div>
-            <h3 className="text-2xl font-semibold">让报税更轻松，从现在开始</h3>
-            <p className="mt-2 text-neutral-600">拍收据、管流水、出报表，一站式搞定。</p>
+            <h3 className="text-2xl font-semibold">{t('cta.subtitle')}</h3>
+            <p className="mt-2 text-neutral-600">{t('cta.desc')}</p>
           </div>
           <DownloadButtons />
         </div>
         <div className="mt-6 text-sm text-neutral-500">
-          沟通合作：<a className="underline" href="mailto:hello@deductdd.com">hello@deductdd.com</a>
+          {t('cta.contact')} <a className="underline" href="mailto:hello@deductdd.com">hello@deductdd.com</a>
         </div>
       </Section>
     </div>
