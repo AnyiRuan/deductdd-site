@@ -2,39 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
-/* CSS Variables */
 :root {
   --radius: 16px;
 }
 
-/* Base Styles */
 html, body {
-  @apply h-full scroll-smooth;
+  height: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
-  @apply bg-white text-neutral-800;
+  background-color: white;
+  color: rgb(38 38 38);
 }
 
-/* Container */
 .container-x {
-  @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-/* Buttons */
+@media (min-width: 640px) {
+  .container-x {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-x {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
 .btn {
-  @apply inline-flex items-center justify-center rounded-xl px-5 py-3 font-medium transition shadow-soft;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-weight: 500;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
 }
 
 .btn-primary {
-  @apply bg-brand text-white hover:bg-brand-dark;
+  background-color: #0E6FD6;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0A4FA5;
 }
 
 .btn-outline {
-  @apply border border-neutral-300 hover:border-neutral-400;
+  border: 1px solid rgb(212 212 212);
 }
 
-/* Brand gradient helper */
+.btn-outline:hover {
+  border-color: rgb(163 163 163);
+}
+
 .bg-brand-gradient {
   background: linear-gradient(135deg, #0A4FA5 0%, #0E6FD6 60%, #47B5FF 100%);
 }
