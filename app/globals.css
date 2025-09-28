@@ -30,3 +30,14 @@ body {
 .btn-outline {
   @apply border border-neutral-300 hover:border-neutral-400;
 }
+
+/* Brand gradient helper */
+.bg-brand-gradient {
+  background: linear-gradient(135deg, #0A4FA5 0%, #0E6FD6 60%, #47B5FF 100%);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #0A4FA5 0%, #0E6FD6 60%, #47B5FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
